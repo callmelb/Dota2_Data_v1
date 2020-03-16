@@ -38,14 +38,7 @@ def matchReport(match_id):
         hero = get_match_heroids(match_id)
         radiant_heroids = str(hero[1]).strip("[").strip("]")
         dire_heroids = str(hero[0]).strip("[").strip("]")
-        print(hero)
-        print(radiant_heroids)
-        print(league_name)
-        print(radiant_team)
-        print(dire_team)
-        print(radiant_total_kills)
-        print(dire_total_kills)
-        print(win_temp)
+
 
         p_json = '"league_name":"{}","'.format(league_name)+\
                  'radiant_team":"{}","'.format(radiant_team)+\
