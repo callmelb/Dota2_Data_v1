@@ -71,7 +71,8 @@ def matchReport(match_id):
         get_png(match_id,duration,'f:/testdata/data/{}/{}.png'.format(match_id,match_id))
     else:
         pass
-matchReport(5289041688)
+    
+#matchReport(5289041688)
 
 
 
