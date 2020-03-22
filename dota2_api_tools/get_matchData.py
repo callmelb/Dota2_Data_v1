@@ -2,8 +2,11 @@ from dota2_api_tools.get_api_json import *
 
 #获取单场比赛整体数据  参数:比赛id   返回值:比赛数据json
 def get_matchData(match_id):
-    matchData = get_api_json('https://api.opendota.com/api/matches/{}'.format(match_id))
-    return matchData
+    try:
+        matchData = get_api_json('https://api.opendota.com/api/matches/{}'.format(match_id))
+        return matchData
+    except KeyError as v:
+        print('except:获取数据失败', v)
 
 #获取比赛胜利阵营   参数:比赛id    返回值:胜利方名字    "1":Radiant天辉  "0":'Dire'夜宴方
 def get_match_win(match_id):
@@ -28,13 +31,14 @@ def get_match_heroids(match_id):
 
 #获取比赛经济、经验差距 制作曲线   参数:比赛id
 def get_match_gold_xp_gap(match_id):
-    goldList = get_matchData(match_id)['radiant_gold_adv']
-    xpList = get_matchData(match_id)['radiant_xp_adv']
-    return goldList,xpList
+    try:
+        goldList = get_matchData(match_id)['radiant_gold_adv']
+        xpList = get_matchData(match_id)['radiant_xp_adv']
+        return goldList,xpList
+    except KeyError as k:
+        raise KeyError('数据没拿到')
 
 
-if __name__ == '__main__':
-    pass
 
 
 

@@ -1,5 +1,5 @@
 from dota2_api_tools.get_matchData import *
-from dota2_api_tools.get_png import *
+from dota2_api_tools.get_png_v1 import *
 from selenium import webdriver
 import time
 import os

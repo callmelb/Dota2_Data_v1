@@ -1,7 +1,7 @@
 from dota2_api_tools.get_matchData import *
 from pyecharts import Line
 
-def get_png(match_id,duration,path):
+def get_png_v1(match_id,duration,path):
     gold =get_match_gold_xp_gap(match_id)[0]
     xp = get_match_gold_xp_gap(match_id)[1]
 
@@ -14,6 +14,5 @@ def get_png(match_id,duration,path):
     print(attr)
     line = Line("经济经验差异曲线")
     line.add("经济差异曲线", attr, gold,is_smooth=True,mark_line=["max", "min"])
-    line.add("经验差异曲线", attr, xp,is_smooth=True)
     #line.show_config()
     line.render(path="{}".format(path))

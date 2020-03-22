@@ -1,5 +1,6 @@
 from dota2_api_tools.get_matchData import *
-from dota2_api_tools.get_png import *
+from dota2_api_tools.get_png_v1 import *
+from dota2_api_tools.get_png_v2 import *
 from selenium import webdriver
 import time
 import os
@@ -38,7 +39,14 @@ def matchReport(match_id):
         hero = get_match_heroids(match_id)
         radiant_heroids = str(hero[1]).strip("[").strip("]")
         dire_heroids = str(hero[0]).strip("[").strip("]")
-
+        print(hero)
+        print(radiant_heroids)
+        print(league_name)
+        print(radiant_team)
+        print(dire_team)
+        print(radiant_total_kills)
+        print(dire_total_kills)
+        print(win_temp)
 
         p_json = '"league_name":"{}","'.format(league_name)+\
                  'radiant_team":"{}","'.format(radiant_team)+\
@@ -61,11 +69,11 @@ def matchReport(match_id):
               '本场耗时{}分钟    人头比{}:{}    '.format(duration,radiant_total_kills,dire_total_kills),\
               '{}获胜'.format(win_temp),\
               '\n''\n''ps.本场比赛id:{}。本条动态由python自动发出，并感谢lb的独家赞助'.format(match_id))
-        get_png(match_id,duration,'f:/testdata/data/{}/{}.png'.format(match_id,match_id))
+        #get_png_v1(match_id,duration,'f:/testdata/data/{}/{}.png'.format(match_id,match_id))
+        get_png_v2(match_id)
     else:
         pass
-    
-#matchReport(5289041688)
+matchReport(5289041688)
 
 
 
