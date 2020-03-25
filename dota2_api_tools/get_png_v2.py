@@ -57,6 +57,12 @@ def get_png_v2(match_id):
         d10 = '十分钟经济 \n 领先{}'.format(-gold[10])
         plt.annotate(d10,xy=(10,gold[10]),xytext=(10,(gold[10]-1.5*betw)),color='#c63836',fontsize=14,weight='black',arrowprops=dict(facecolor='#c63836',ec='#c63836', shrink=1, width=2,\
                                                                               headwidth=2,headlength=2))
+    #在经济曲线上添加肉山击杀标识
+    roshanData = get_roshan_kill(get_matchData(match_id))
+    rs = '天辉击杀 \n 肉山'
+    plt.annotate(rs,xy=(18,gold[18]),xytext=(18,15000),color='#99aa40',fontsize=14,weight='black',arrowprops=dict(facecolor='#99aa40',ec='#99aa40', shrink=1, width=2,\
+                                                                              headwidth=2,headlength=2))
+
 
     #在经济曲线上添加比赛结束标识
     win_team = get_match_win(match_id)
